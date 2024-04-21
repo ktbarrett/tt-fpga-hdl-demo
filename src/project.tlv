@@ -43,6 +43,9 @@
 
 \TLV calc()
    
+   $op_raw = *ui_in[7];
+   $equals_in = $op_raw & ! >>1$op_raw
+   
    |calc
       @0
          $reset = *reset;
