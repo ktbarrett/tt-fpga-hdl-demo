@@ -43,15 +43,14 @@
 
 \TLV calc()
    
-   $op_raw = *ui_in[7];
-   $equals_in = $op_raw & ! >>1$op_raw
    
    |calc
       @0
          $reset = *reset;
          $a[7:0] = *ui_in[3:0];
          $op[1:0] = *ui_in[5:4];
-         $equals_in = *ui_in[7];
+         $op_raw = *ui_in[7];
+         $equals_in = $op_raw & ! >>1$op_raw;
       @1
          $sum[7:0] = $a + >>1$out;
          $diff[7:0] = $a - >>1$out;
